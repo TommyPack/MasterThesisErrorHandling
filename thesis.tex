@@ -1,0 +1,103 @@
+%
+% LaTeX- Template for Master Theses
+%      @ FH Kaernten
+%
+% V 1.0
+% Feb. 2011
+% M.Koeberle
+%
+% Main LaTeX-File
+%
+
+\documentclass[a4paper,12pt]{scrreprt}
+
+\usepackage[german,english]{babel}
+\usepackage{graphicx}
+%\usepackage{lineno}
+\usepackage[hang]{caption}
+%\usepackage[hang]{subfig}
+\usepackage{amsmath}
+%\usepackage[light,math]{iwona}
+%\usepackage{iwona}
+\usepackage{chngcntr} % Zur Nummerierung der Abbildungen in der Reihenfolge 1,2,3...
+\counterwithout{figure}{chapter} % Zur Nummerierung der Abbildungen in der Reihenfolge 1,2,3...
+\usepackage{hyperref}
+\usepackage[utf8x]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{glossaries}
+
+
+% ============= Kopf- und Fußzeile =============
+\pagestyle{fancy}
+%
+\lhead{\slshape \leftmark}
+\chead{}
+\rhead{\includegraphics[scale=0.15]{pictures/FH_KAERNTEN_logo_rgb_20cm.jpg} \includegraphics[scale=0.1]{pictures/Infineon-Logo.svg.png}}
+%%
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+%%
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\renewcommand{\baselinestretch}{1.2}
+\parindent0em
+\parskip1.0ex plus0.5ex minus0.5ex
+\voffset-28mm
+\hoffset-1in
+\topmargin15mm
+\headheight5mm
+\headsep10mm
+\textheight240mm\textwidth160mm
+\footskip10mm
+\oddsidemargin25mm
+\evensidemargin25mm
+
+
+
+\def\BS{\textbackslash}
+\def\T{\textstyle}
+
+%..........Abkürzungen..........
+\makeglossaries
+\newacronym{amh}{AMH}{Automated Material Handling}
+\newacronym{bpmn}{BPMN}{Business Process Model and Notation}
+\newacronym{foup}{FOUP}{Front Opening Unified Pod}
+\newacronym{oht}{OHT}{Overhead Hoist Transport}
+\newacronym{amhs}{AMHS}{Automated Material Handling System}
+
+%...............................
+
+
+\begin{document}
+
+\pagestyle{empty}
+\pagenumbering{roman}
+\include{title}
+\include{statement}
+\include{abstract}
+\include{ackn}
+
+\pagestyle{fancy}
+\include{index}
+\pagenumbering{arabic}
+
+
+\include{01_Introduction}
+\include{02_AMH}
+\include{03_BPMN}
+\include{04_Modeling}
+\include{05_SimulationEnvironment}
+\include{06_EvaluationSystemBehaviour}
+\include{07_ConclusionOutlook}
+
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{unsrtdin}
+\bibliography{bib}
+\printglossaries
+%\include{abbrev}
+%\include{appendix}
+
+\end{document}

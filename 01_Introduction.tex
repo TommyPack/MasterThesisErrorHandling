@@ -1,0 +1,68 @@
+%
+% LaTeX-Template for Master Theses
+%	 @ FH Kaernten
+%
+% V 1.0
+% Feb. 2011
+% M.Koeberle
+%
+% Example Chapter 1
+%
+% Eintieg ins Thema um Grundlagen zu kennen
+
+\chapter{Introduction}
+
+
+
+
+
+\section{Mobile Industrial Robots}
+\label{sec:TopicDescription}
+
+\TeX\ (X or chi is pronounced as in Scottish loch) is a low-level markup and programming language created by Donald Knuth to typeset documents attractively and consistently.
+Knuth started writing the \TeX\ typesetting engine in 1977 to explore the potential of the digital printing equipment that was beginning to infiltrate the publishing industry at that time, especially in the hope that he could reverse the trend of deteriorating typographical quality that he saw affecting his own books and articles.
+\TeX\ is a programming language, in the sense that it supports the if-else construct, you can make calculations with it (that are performed while compiling the document), etc., but you would find it very hard to make anything else but typesetting with it. The fine control \TeX\ offers makes it very powerful, but also difficult and time-consuming to use. \TeX\ is renowned for being extremely stable, for running on many different kinds of computers, and for being virtually bug free.
+Nowadays when producing documents in the \TeX\ language, practically nobody uses plain \TeX. Instead, different \TeX\ distributions such as \LaTeX\ are used to save time, automate certain tasks and reduce user introduced errors.
+
+
+\section{Unloading Optimization Techniques}
+\label{sec:Thoughts}
+
+\LaTeX\ (pronounced either "Lah-tech" or "Lay-tech") is a macro package based on \TeX\ created by Leslie Lamport. Its purpose is to simplify \TeX\ typesetting, especially for documents containing mathematical formulae.
+Many later authors have contributed extensions, called packages or styles, to \LaTeX. Some of these are bundled with most \TeX/\LaTeX\ software distributions; more can be found in the Comprehensive \TeX\ Archive Network (CTAN).
+Since \LaTeX\ comprises a group of \TeX\ commands, \LaTeX\ document processing is essentially programming. You create a text file in \LaTeX\ markup. The \LaTeX\ macro reads this to produce the final document.
+This approach has some disadvantages in comparison with a WYSIWYG (What You See Is What You Get) program such as Openoffice.org Writer or Microsoft Word.
+
+In \LaTeX\:
+\begin{itemize}
+\item You don't (usually) see the final version of the document when editing it.
+\item You generally need to know the necessary commands for \LaTeX\ markup.
+\item It can sometimes be difficult to obtain a certain look for the document.
+\end{itemize}
+On the other hand, there are certain advantages to the \LaTeX\ approach:
+\begin{itemize}
+\item Document sources can be read with any text editor and understood, unlike the complex binary and XML formats used with WYSIWYG programs.
+\item You can concentrate purely on the structure and contents of the document, not get caught up with superficial layout issues.
+\item You don't need to manually adjust fonts, text sizes, line heights nor text flow for readability, as \LaTeX\ takes care of them automatically.
+\item In \LaTeX\ the document stucture is visible to the user, and can be easily copied to another document. In WYSIWYG applications it is often not obvious how a certain formatting was produced, and it might be impossible to copy it directly for use in another document.
+\item The layout, fonts, tables and so on are consistent throughout the document.
+\item Mathematical formulae can be easily typeset.
+\item Indexes, footnotes, citations and references are generated easily.
+\item You are forced to structure your documents correctly.
+\end{itemize}
+The \LaTeX-like approach can be called WYSIWYM, i.e. What You See Is What You Mean: you can't see what the final version will look like while typing. Instead you see the logical structure of the document. \LaTeX\ takes care of the formatting for you.
+The \LaTeX\ document is a plain text file containing the content of the document, with additional markup. When the source file is processed by the macro package, it can produce documents in several formats. \LaTeX\ natively supports DVI and PDF, but by using other software you can easily create PostScript, PNG, JPG, etc.
+
+
+\section{Problem Description}
+\label{sec:ProblemDescription}
+In production, time can be lost due to transportation, especially when unloading equipment. As there is currently no specific concept for unloading equipment, transport vehicle congestion can occur. The tools are only unloaded as quickly as possible, but no attention is paid to whether a next batch is already waiting or whether the current one already has a new destination (next process step, storage, etc.). This can result in a subsequent problem, as the lot may have already been stored although it should be sent to the next process and then a new vehicle has to drive to the position to pick it up 
+Due to high part variance, the implementation of just-in-time delivery is difficult because the different lots do not have a fixed production sequence. It may be that a lot has to be checked after a process and therefore cannot be transported to the next tool, these checks can usually not be predicted.
+For just in time delivery, the materials must arrive exactly when they are needed and are not stored beforehand.
+I.e. if a door is delivered in the car industry, it is delivered from the truck directly to the production line and installed.
+In the car industry, for example, each individual step has a previous step. One part is gradually added to the whole and it runs along the assembly line. This is also the case in the pharmaceutical industry, where the "ingredients" are gradually added in a certain order to become the finished product.\\
+
+
+% Problembeschreibung, abstrahiert, Kernproblem, simple Blöcke und Symbole Grafiken mit Worten erklären, Staus, Kreuzungen etc.
+% Symbolset
+% 

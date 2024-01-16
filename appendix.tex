@@ -1,0 +1,142 @@
+%
+% LaTeX-Template for Master Theses
+% 	@ FH Kaernten
+%
+% V 1.1
+% (c) Thomas Klinger / Dezember 1998
+% überarbeitet im Oktober 1999
+%
+% V 1.2	
+% modified for master theses
+% Feb. 2011
+% M.Koeberle
+%
+% Appendix
+%
+
+\appendix
+\addcontentsline{toc}{chapter}{Appendix}
+
+\chapter{Source Code}
+\section{Template File Formats}
+\subsection{HSPICE}
+
+\label{table:template_cdl}
+{\footnotesize
+\begin{verbatim}
+HEADER_FIRST: .SUBCIRCUIT &!cell_name &%I &%O &%IO &%S &@BulkNode 
+PIN_INFO: *.PININFO &( &%I : I &) \&( &%O : O &) &( &%IO : IO &) 
+STOP_VIEW: M &^ &!inst_name &@d &@g &@s &@BulkNode nmos w= &@w l= &@l 
+INSTANCE: X &^ &!inst_name &%I &%O &%IO &!cell_name
+\end{verbatim}
+}
+
+\subsection{VHDL}
+
+\label{table:template_vhdl}
+{\footnotesize
+\begin{verbatim}
+HEADER_FIRST ENTITY &!cell_name IS \n
+    \t PORT( \n  \t &( &%I : IN std_logic; \n
+    &)  \t &( &%O : OUT std_logic; \n
+    &) ); END &!cell_name NULL
+
+PIN_INFO \n ARCHITECTURE madebyTDI of &!cell_name IS \n
+    \t &( SIGNAL &( &%I : std_logic; \n
+    &)  \t &( &%O : std_logic; \n
+    &) BEGIN NULL
+
+INSTANCE \t X &- &!inst_name : &!cell_name \n
+    \t PORT MAP( \n
+    \t  \t  &( IN => &%I , \n
+    &) \t   \t  &( OUT => &%O , \n
+    &) );  NULL
+
+FOOTER END madebyTDI; NULL
+\end{verbatim}
+}
+
+\section{Generated Netlists}
+
+\subsection{HSPICE}
+\label{table:net_hspice}
+
+{\footnotesize
+\begin{verbatim}
+**  Cell 'c_inv', library: 'cmoslib', path
+** '/opt/tech5/cmos/.dr/cmoslib/v2.1/cdb/cmoslib', vers 'vnil'
+.SUBCKT c_inv in0 out0 hSup lSup nBulk pBulk n0L=1.0 n0W=1.0 p0L=1.0 p0W=1.0
+*.PININFO in0:I out0:O
+
+** The following net names were mapped:
+** OriginalName: net11 mapped to: hSup
+** OriginalName: net10 mapped to: lSup
+
+Mn0 out0 in0 lSup nBulk nmod  w='n0W*GEONSHRNK-2*GEONDEL2'
++ l='n0L*GEONSHRNK-2*GEONDEL1'
+Mp0 out0 in0 hSup pBulk pmod  w='p0W*GEOPSHRNK-2*GEOPDEL2'
++ l='p0L*GEOPSHRNK-2*GEOPDEL1'
+
+.ENDS
+
+**  Cell 'roli_einfach', library: 'rol', path
+** '/home/sab_kurs/fw1.1.1/v1.0.0/home/leng/lib_rol/rol', vers 'vnil'
+XIN0 input output VDD VSS VSS VDD c_inv n0L=n0L p0L=p0L n0W=n0W p0W=p0W
+\end{verbatim}
+}
+
+\subsection{VHDL}
+\label{table:net_vhdl}
+{\footnotesize
+\begin{verbatim}
+--Netlist:
+--Time: Tue Jan 11 11:41:47 2000
+--By: leng
+
+--Library=cmoslib,Cell=c_inv,View=native
+LIBRARY IEEE,cmoslib,proj_vhdl,proj_verilog;
+USE IEEE.std_logic_1164.all;
+USE work.all;
+USE cmoslib.cmoslib.all;
+
+ENTITY c_inv IS
+     GENERIC (
+          n0L : real := 1.0;
+          n0W : real := 1.0;
+          p0L : real := 1.0;
+          p0W : real := 1.0
+     );
+     PORT(
+          in0 : IN std_logic;
+          out0 : OUT std_logic
+     );
+END c_inv;
+
+ARCHITECTURE madebyTDI OF c_inv IS
+     SIGNAL VSS : std_logic;
+     SIGNAL VDD : std_logic;
+
+     SIGNAL out0_ylw : std_logic;
+
+BEGIN
+
+     VSS <= '0';
+     VDD <= '1';
+     out0 <= out0_ylw;
+     Mn0 : c_ntrans
+          PORT MAP(
+               d => out0_ylw,
+               s => VSS,
+               g => in0
+          );
+
+     Mp0 : c_ptrans
+          PORT MAP(
+               d => out0_ylw,
+               s => VDD,
+               g => in0
+          );
+
+END madebyTDI;
+\end{verbatim}
+}
